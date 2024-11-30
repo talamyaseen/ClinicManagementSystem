@@ -60,4 +60,4 @@ gcc Patient.c Slot.c ClinicManagementSystem.c -o ClinicManagementSystem
 ## Running
 
 - **Instructions for Running on Linux**: After compiling, you can run the program using `./ClinicManagementSystem`.
-- **Instructions for Running on Windows**: After compiling, you can run the program using `ClinicManagementSystem.exe`
+- **Instructions for Running on Windows**: After compiling, you can run the program using `ClinicManagementSystem.exe`.
