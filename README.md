@@ -55,9 +55,9 @@ To compile the program, use the following command:
 
 ```bash
 gcc Patient.c Slot.c ClinicManagementSystem.c -o ClinicManagementSystem
-
-1. **Instructions for Running on Linux**:
-     After compiling, you can run the program using `./ClinicManagementSystem`.
-2. **Instructions for Running on Windows**:
-     After compiling, you can run the program using `ClinicManagementSystem.exe` in the Command Prompt.
 ```
+
+## Running
+
+- **Instructions for Running on Linux**: After compiling, you can run the program using `./ClinicManagementSystem`.
+- **Instructions for Running on Windows**: After compiling, you can run the program using `ClinicManagementSystem.exe`
