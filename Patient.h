@@ -2,7 +2,7 @@
 #define PATIENT_H
 typedef struct Patient
 {
-	char *name;
+	char name[50];
 	char gender;
 	int age;
 	int ID;

@@ -8,7 +8,6 @@
 
 Patient *patients = NULL;
 Slot slots[SLOTS_SIZE] = {{"2pm to 2:30pm", -1}, {"2:30pm to 3pm", -1}, {"3pm to 3:30pm", -1}, {"4pm to 4:30pm", -1}, {"4:30pm to 5pm", -1}};
-
 void main(void)
 {
 	int mode, password;
@@ -58,13 +57,15 @@ void main(void)
 						printf("\tPlease enter patient ID: ");
 						scanf("%d", &ID);
 						int i = 0;
-						while (search_patient_by_ID(patients, ID) != NULL && i < 3)
+						for (i = 0; i < 2; i++)
 						{
-							printf("\tThis ID exists, Please enter new patientID, you have %d trails: ", 3 - i);
+							if (search_patient_by_ID(patients, ID) == NULL)
+								break;
+							printf("\tThis ID exists, Please enter new patientID, you have %d trails: ", 2 - i);
 							scanf("%d", &ID);
-							i++;
 						}
-						if (i <= 3)
+
+						if (search_patient_by_ID(patients, ID) == NULL)
 						{
 							Patient *newPatient = create_patient(name, age, gender, ID);
 							add_patient(&patients, newPatient);
@@ -94,8 +95,13 @@ void main(void)
 							scanf(" %c", &gender);
 							printf("\tPlease enter patient new ID: ");
 							scanf("%d", &ID);
-							edit_patient(patientToEdit, name, age, gender, ID);
-							printf("\t Patient information edited successfully\n");
+							if (search_patient_by_ID(patients, ID) != NULL && patientToEdit->ID != ID)
+								printf("\tThis ID exists, information can't edited\n");
+							else
+							{
+								edit_patient(patientToEdit, name, age, gender, ID);
+								printf("\t Patient information edited successfully\n");
+							}
 						}
 					}
 					else if (choice == 3)

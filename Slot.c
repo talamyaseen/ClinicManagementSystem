@@ -1,5 +1,6 @@
 #include "Slot.h"
 #include <stdio.h>
+
 void print_available_slots(Slot *slots, int size)
 {
     int i, j = 0;

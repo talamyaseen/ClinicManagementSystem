@@ -1,10 +1,17 @@
 #include "Patient.h"
 #include <stdio.h>
 #include <stdlib.h>
+
 Patient *create_patient(char *name, int age, char gender, int ID)
 {
 	Patient *newPatient = (Patient *)malloc(sizeof(Patient));
-	newPatient->name = name;
+	int i = 0;
+	while (name[i] != '\0')
+	{
+		newPatient->name[i] = name[i];
+		i++;
+	}
+	newPatient->name[i] = '\0';
 	newPatient->age = age;
 	newPatient->gender = gender;
 	newPatient->ID = ID;
@@ -45,7 +52,13 @@ Patient *search_patient_by_ID(Patient *patients, int id)
 }
 void edit_patient(Patient *patientToEdit, char *name, int age, char gender, int ID)
 {
-	patientToEdit->name = name;
+	int i = 0;
+	while (name[i] != '\0')
+	{
+		patientToEdit->name[i] = name[i];
+		i++;
+	}
+	patientToEdit->name[i] = '\0';
 	patientToEdit->age = age;
 	patientToEdit->gender = gender;
 	patientToEdit->ID = ID;
